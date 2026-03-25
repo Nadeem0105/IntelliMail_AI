@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IntelliMail AI - Email Analyzer</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header class="brutal-header">
+            <h1>INTELLIMAIL AI</h1>
+            <p>Spam & Priority Email Classifier</p>
+        </header>
+
+        <main>
+            <div class="brutal-card input-section">
+                <label for="email-text" class="brutal-label">EMAIL CONTENT</label>
+                <textarea id="email-text" class="brutal-input" placeholder="Paste your email here to begin..."></textarea>
+                <button id="analyze-btn" class="brutal-btn">ANALYZE EMAIL ✨</button>
+            </div>
+
+            <div id="loading" class="hidden brutal-loading">
+                <div class="marquee">
+                    <span>PROCESSING... PROCESSING... PROCESSING... PROCESSING... PROCESSING... PROCESSING...</span>
+                </div>
+            </div>
+
+            <div id="results" class="hidden brutal-results">
+                <div class="cards-container">
+                    <div class="brutal-card result-box class-box">
+                        <h3>CLASSIFICATION</h3>
+                        <!-- Initial badge class must be 'badge' so script.js sets the rest -->
+                        <div class="badge" id="class-badge">WAITING...</div>
+                    </div>
+                    
+                    <div class="brutal-card result-box prio-box">
+                        <h3>PRIORITY LEVEL</h3>
+                        <div class="badge" id="priority-badge">WAITING...</div>
+                    </div>
+                </div>
+
+                <div class="brutal-card reasoning-box">
+                    <h3>AI REASONING</h3>
+                    <p id="reasoning-text">The AI is thinking...</p>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
