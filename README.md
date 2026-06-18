@@ -56,10 +56,16 @@ IntelliMail AI/
 │   ├── SMSSpamCollection    # Downloaded training dataset (UCI SMS Spam)
 │   └── spam_classifier_model.pkl # Trained serialized Naive Bayes Model
 │
-├── static/                  # Responsive web dashboard frontend
-│   ├── index.html           # Main dashboard structured HTML5 page
-│   ├── style.css            # Premium dark UI system with Glassmorphic styles
-│   └── script.js            # Interactivity, micro-animations & API gateway
+├── frontend/                # Next.js web dashboard frontend (App Router)
+│   ├── src/
+│   │   └── app/
+│   │       ├── globals.css  # Premium Neo-brutalist theme & custom variables
+│   │       ├── layout.js    # Font optimization & SEO metadata
+│   │       └── page.js      # Client component dashboard with history logic
+│   ├── package.json         # Node.js project scripts & dependencies
+│   └── next.config.mjs      # Next.js settings
+│
+├── static/                  # (Legacy) Static HTML/JS frontend files
 │
 ├── .env.example             # Template for API keys
 ├── .gitignore               # Configured Git tracking rule exceptions
@@ -138,17 +144,25 @@ Done!
 
 ---
 
-## ⚡ Step 2: Start the Web Application
+## ⚡ Step 2: Start the Application
 
-With the ML model trained and your `.env` API key configured, run the FastAPI application:
+The application is split into a **FastAPI backend** (serving classification endpoints) and a **Next.js frontend** (serving the dashboard).
 
+### A. Run the FastAPI Backend
+Start the backend server on port `8000`:
 ```bash
 uvicorn main:app --reload
 ```
-
-*The server will start on:*
-- Local Web Interface: [http://127.0.0.1:8000](http://127.0.0.1:8000)
 - Interactive API Docs: [http://127.0.0.1:8000/docs](http://127.0.0.1:8000/docs)
+
+### B. Run the Next.js Frontend
+In a new terminal, navigate to the `frontend` folder, install Node packages, and start the development server on port `3000`:
+```bash
+cd frontend
+npm install
+npm run dev
+```
+- Local Web Interface: [http://localhost:3000](http://localhost:3000)
 
 ---
 
